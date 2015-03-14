@@ -13,5 +13,16 @@
   .container-fluid
     .row
       .col-md-12
-        | Halala
-        = react_component("UsersFixedTable", data: render(template: 'admin/users/index.json.jbuilder'), tableWidth: 1140, tableHeight: 400)
+        = react_component("UsersFixedTable", data: render(template: 'admin/users/index.json.jbuilder'), tableWidth: 1140, tableHeight: 500)
+    .row
+      .col-md-12
+        .panel-footer
+          .row
+            .col-md-6
+              .dataTables_info aria-live="polite" role="status"
+                = page_entries_info @admin_users, model: User, :html => false
+            .col-md-6
+              .pull-right
+                = will_paginate @admin_users, renderer: BootstrapPagination::Rails,
+                                              previous_label: "<i class='fa fa-angle-left'></i>",
+                                              next_label: "<i class='fa fa-angle-right'></i>"

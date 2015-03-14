@@ -10,6 +10,14 @@
     width: 50px;
   }
 
+  .table {
+    .table-actions {
+      a.btn {
+        margin-right: 5px;
+      }
+    }
+  }
+
   #topnav.navbar-default .navbar-brand {
     background: image-url("avalon-logo.png") no-repeat -35px bottom;
   }

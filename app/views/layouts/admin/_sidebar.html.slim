@@ -9,7 +9,7 @@
           .tabular-cell.welcome-options
             span.welcome-text Welcome,
             a.name href="#"
-              = current_user.email
+              = current_user.name
     #widget-sidebar.widget.stay-on-collapse
       span.widget-heading Management
       nav.widget-body role="navigation"
@@ -32,44 +32,31 @@
           li.hasChild
             a href="javascript:;"
               i.fa.fa-sitemap
-              span Staffs
+              span Topics
             ul.acc-menu
               li
-                a href="/admin/users"  All staffs
+                a href="/admin/topics"  All topics
               li
-                a href="/admin/users/new"  Create new staff
+                a href="/admin/topics/new"  Create new topic
           li.hasChild
             a href="javascript:;"
               i.fa.fa-comments
-              span Messages
-              span.label.label-primary BS
+              span Posts
             ul.acc-menu
               li
-                a href="ui-modals.html"  Modal Box
+                a href="/admin/posts"  All posts
               li
-                a href="ui-progress.html"  Progress Bars
-              li
-                a href="ui-paginations.html"  Pagers &amp; Paginations
-              li
-                a href="ui-breadcrumbs.html"  Breadcrumbs
-              li
-                a href="ui-labelsbadges.html"  Labels &amp; Badges
-              li
-                a href="ui-alerts.html"  Alerts &amp; Notificiations
-              li
-                a href="ui-tabs.html"  Tabs &amp; Accordions
-              li
-                a href="ui-navbars.html"  Navbars
-              li
-                a href="ui-carousel.html"  Carousel
-              li
-                a href="ui-wells.html"  Wells
+                a href="/admin/posts/new"  Create new post
 
     .widget.stay-on-collapse
       .widget-heading Setting Apps
       nav.widget-body
         ul.acc-menu
           li
-            a href="app-inbox.html"
+            a href="#"
               i.fa.fa-gears
-              span Config
+              span Categories
+          li
+            a href="#"
+              i.fa.fa-tag
+              span Tags

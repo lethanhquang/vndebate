@@ -5,7 +5,7 @@ require('expose?jQuery!expose?$!jquery');
 require('expose?React!react/addons');
 require('babel/polyfill');
 
-
+// Libs
 let $      = require('jquery');
 let React  = require('react/addons');
 

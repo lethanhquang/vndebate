@@ -1,0 +1,89 @@
+.page-content
+  .page-heading
+    h1 Topics Profile
+  /! End page header
+  ol.breadcrumb
+    li
+      a href="/admin"  Admin
+    li
+      = link_to 'Topics', admin_topics_path
+    li.active
+      a href="#"  Topic detail
+  /! End Breadcrumb
+  .container-fluid
+    .row
+      .col-md-12
+        .panel.panel-profile.panel-midnightblue
+          .panel-body
+            .row
+              .col-md-6
+                = image_tag '/assets/no_avatar.png', class: 'avatar pull-left', style: 'margin: 0 20px 20px 0'
+                .table-responsive.table-userinfo
+                  h3.mt0
+                    | Admin
+                  table.table.table-condensed
+                    tbody
+                      tr
+                        td Categories
+                        td = @admin_topic.category.name
+                      tr
+                        td Date
+                        td = @admin_topic.created_at.to_s(:long)
+                      tr
+                        td Status
+                        td = render_label_topic_status(@admin_topic.status)
+              .col-md-6
+                h3.mt0 = @admin_topic.title
+                p = @admin_topic.description
+            hr.outsider/
+            .row
+              .col-md-12
+                .tab-container.tab-default.mb0
+                  ul.nav.nav-tabs
+                    li.dropdown.pull-right.tabdrop.hide
+                      a.dropdown-toggle data-toggle="dropdown" href="#"
+                        i.fa.fa-angle-down
+                      ul.dropdown-menu
+                    li
+                      a aria-expanded="false" data-toggle="tab" href="#detail"  Topic Detail
+                    li.active
+                      a aria-expanded="true" data-toggle="tab" href="#posts"  Posts
+                  .tab-content
+                    #detail.tab-pane
+                      .row
+                        .col-md-12
+                          h3 = @admin_topic.title
+                          p = @admin_topic.content
+                    #posts.tab-pane.active
+                      .table-responsive
+                        table.table.table-striped.mb0
+                          thead
+                            tr
+                              th width="5%"  #
+                              th width="40%"  Post Title
+                              th width="20%"  Debater
+                              th width="5%"
+                                i.fa.fa-comments
+                              th width="10%"  Date
+                              th width="10%"  Status
+                              th width="10%"  Actions
+                          tbody
+                            - @admin_topic.posts.each do |post|
+                              tr
+                                td = post.id
+                                td
+                                  = link_to admin_post_path(post) do
+                                    = post.title
+                                td
+                                  = link_to admin_user_path(post.user) do
+                                    = post.user.name
+                                td = rand(1..100)
+                                td = post.created_at.to_s(:short)
+                                td = render_label_topic_status(post.status)
+                                td.table-actions
+                                  = link_to admin_post_path(post), class: 'btn btn-success btn-xs' do
+                                    i.fa.fa-search
+                                  = link_to edit_admin_post_path(post), class: 'btn btn-default btn-xs' do
+                                    i.fa.fa-pencil
+                                  = link_to edit_admin_post_path(post), class: 'btn btn-danger btn-xs' do
+                                    i.fa.fa-trash-o

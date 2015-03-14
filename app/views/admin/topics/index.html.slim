@@ -1,0 +1,60 @@
+.page-content
+  .page-heading
+    h1 Topics Management
+  /! End page header
+  ol.breadcrumb
+    li
+      a href="/admin"  Admin
+    li
+      a href="/admin/topics" Topics
+    li.active
+      a href="#"  All topics
+  /! End Breadcrumb
+  .container-fluid
+    .row
+      .col-md-12
+        .panel.panel-default
+          .panel-heading
+            h2 Data Tables
+            .panel-ctrls
+          .panel-body.panel-no-padding
+            .table-vertical
+              table.table.table-striped.table-bordered.datatables.dataTable.no-footer
+                thead
+                  tr
+                    th ID
+                    th Topic Title
+                    th Categories
+                    th.text-center
+                      i.fa.fa-comments
+                    th.text-center Status
+                    th Actions
+                tbody
+                  - @admin_topics.each do |topic|
+                    tr
+                      td data-title=('ID')
+                        = topic.id
+                      td data-title=('Title')
+                        = link_to admin_topic_path(topic) do
+                          = topic.title
+                      td = topic.category.name
+                      td.text-center = topic.posts.count
+                      td.text-center data-title=('Status')
+                        = render_label_topic_status(topic.status)
+                      td.table-actions
+                        = link_to admin_topic_path(topic), class: 'btn btn-success btn-xs' do
+                          i.fa.fa-search
+                        = link_to edit_admin_topic_path(topic), class: 'btn btn-default btn-xs' do
+                          i.fa.fa-pencil
+                        = link_to edit_admin_topic_path(topic), class: 'btn btn-danger btn-xs' do
+                          i.fa.fa-trash-o
+            .panel-footer
+              .row
+                .col-md-6
+                  .dataTables_info aria-live="polite" role="status"
+                    = page_entries_info @admin_topics, model: Topic, :html => false
+                .col-md-6
+                  .pull-right
+                    = will_paginate @admin_topics, renderer: BootstrapPagination::Rails,
+                                                  previous_label: "<i class='fa fa-angle-left'></i>",
+                                                  next_label: "<i class='fa fa-angle-right'></i>"

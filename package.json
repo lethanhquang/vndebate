@@ -11,21 +11,21 @@
     "webpack-dev-server": "*"
   },
   "dependencies": {
-    "webpack": "*",
-    "chunk-manifest-webpack-plugin": "*",
     "babel": "*",
     "babel-core": "*",
     "babel-loader": "*",
     "babel-runtime": "*",
+    "chunk-manifest-webpack-plugin": "*",
     "exports-loader": "*",
-    "imports-loader": "*",
     "expose-loader": "*",
+    "fixed-data-table": "^0.1.1",
+    "imports-loader": "*",
     "jquery": "*",
     "lodash": "*",
-    "superagent": "*",
     "react": "*",
     "react-router": "*",
-    "fixed-data-table": "*"
+    "superagent": "*",
+    "webpack": "*"
   },
   "scripts": {
     "test": "jest",

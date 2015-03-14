@@ -39,7 +39,6 @@ let UsersFixedTable  = React.createClass({
     return this.props.data[rowIndex];
   },
   render() {
-    console.log('adf')
     return (
       <Table
         rowHeight={50}
@@ -51,7 +50,6 @@ let UsersFixedTable  = React.createClass({
         <Column label="" width={50} dataKey='avatar' fixed={true} cellRenderer={renderImageCell} />
         <Column label="Name" width={200} dataKey='name' fixed={true} cellRenderer={renderLinkName} />
         <Column label="Email" width={250} dataKey='email' />
-        <Column label="Gender" width={80} dataKey='gender' align='center' cellRenderer={renderGenderCell} />
       </Table>
     );
   }

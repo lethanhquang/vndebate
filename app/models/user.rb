@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
       large:   '800>x',
       square:  '400x400#'
     },
-    default_url: '/assets/placeholder.png',
+    default_url: '/assets/no_avatar.png',
     convert_options: {
       thumb: '-quality 90',
       medium: '-quality 90',
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     }
 
   validates_attachment :avatar,
-  content_type: { content_type: ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'] },
+  content_type: { content_type: ['image/jpeg', 'image/png', 'image/jpg'] },
   size: { less_than: 3.megabyte }
 
   # Association

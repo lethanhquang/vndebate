@@ -1,14 +1,16 @@
 # =========================
 # Seeding Users
 # =========================
-puts 'Seeding 50 Users...'
+puts 'Seeding 100 Users...'
 User.destroy_all
 users = []
 users << User.create({
-  email: 'staff@ssf.vn',
-  password: '12345678'
+  email:      'staff@ssf.vn',
+  password:   '12345678',
+  name:       'Admin',
+  user_type:  2
 })
-20.times do
+100.times do
   avatar = File.open(Rails.root.join('app', 'assets', 'images', 'avatar', "avatar_#{rand(1..14)}.png"))
 
   users << User.create({
@@ -16,17 +18,20 @@ users << User.create({
     password: '12345678',
     name: Faker::Name.name,
     avatar: avatar,
+    user_type: 1,
+    user_status: rand(1..2),
     phone: Faker::PhoneNumber.phone_number
-    # gender: rand(1..2),
     # authentication_token: Devise.friendly_token
   })
+
+  avatar.close
 end
 p 'Finished creating Users.'
 
 # =========================
 # Seeding Topics
 # =========================
-puts 'Seeding Topics...'
+puts 'Seeding 20 Topics...'
 Topic.destroy_all
 topics  = []
 20.times do |q|

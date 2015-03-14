@@ -65,9 +65,10 @@ gem 'enumerize'
 # helper gem
 gem 'friendly_id', '~> 5.1.0'
 gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 gem 'slim-rails'
-# gem 'simple_form'
-# gem 'nested_form'
+gem 'simple_form'
+gem 'nested_form'
 gem 'faker' # https://github.com/stympy/faker
 gem 'dotenv-rails'
 gem 'pry-rails'
