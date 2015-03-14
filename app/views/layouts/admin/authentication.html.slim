@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Blindfold
+    link rel="icon" type="image/png" href="#{asset_path('favicon.png')}"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"
+    link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,700" rel="stylesheet" type="text/css" /
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'modernizr'
+    = javascript_include_tag  'admin'
+    = csrf_meta_tags
+  body.focused-form
+    .animsition-loading
+    .container#login-form
+      a.login-logo href="index.html"
+        = image_tag 'login-logo.png'
+      = yield

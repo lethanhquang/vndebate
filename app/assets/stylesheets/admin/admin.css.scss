@@ -1,0 +1,25 @@
+#admin-page {
+  .color-red { color: #c7254e; }
+  .color-blue { color: #3498db; }
+  .color-purple { color: #e044ab; }
+  .fixed-table-div-image {
+    background: #efefef;
+    background-size: 100%;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+  }
+
+  #topnav.navbar-default .navbar-brand {
+    background: image-url("avalon-logo.png") no-repeat -35px bottom;
+  }
+  #topnav .navbar-brand {
+    background: image-url("avalon-logo.png") no-repeat -35px top;
+  }
+  body.topnav-collapsed #topnav.navbar-default .navbar-brand {
+    background: image-url("avalon-logo.png") no-repeat 0px bottom;
+  }
+  body.topnav-collapsed #topnav .navbar-brand {
+    background: image-url("avalon-logo.png") no-repeat 0px top;
+  }
+}

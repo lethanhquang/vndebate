@@ -1,0 +1,17 @@
+.page-content
+  .page-heading
+    h1 Users Management
+  /! End page header
+  ol.breadcrumb
+    li
+      a href="/admin"  Admin
+    li
+      a href="/admin/users" Users
+    li.active
+      a href="#"  All users
+  /! End Breadcrumb
+  .container-fluid
+    .row
+      .col-md-12
+        | Halala
+        = react_component("UsersFixedTable", data: render(template: 'admin/users/index.json.jbuilder'), tableWidth: 1140, tableHeight: 400)

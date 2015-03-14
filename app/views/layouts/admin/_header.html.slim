@@ -1,0 +1,50 @@
+header#topnav.navbar.navbar-default.navbar-fixed-top.clearfix role="banner"
+  a#leftmenu-trigger data-placement="right" data-toggle="tooltip" title=("Toggle Sidebar")
+  a.navbar-brand href="/"  Blindfold
+  .yamm.navbar-left.navbar-collapse.collapse.in
+    ul.nav.navbar-nav
+      li
+        a href="/api/index.html" target="_blank"
+          strong API Page
+      li
+        a href="/" target="_blank"
+          strong Landing Page
+  ul.nav.navbar-nav.toolbar.pull-right
+    li.dropdown style=("display: none;")
+      a#navbar-links-toggle data-target="header>.navbar-collapse" data-toggle="collapse" href="#"  &nbsp;
+    li.dropdown.toolbar-icon-bg.demo-search-hidden.mr5
+      a.dropdown-toggle.tooltips data-original-title="" data-toggle="dropdown" href="#" title=""
+        span.icon-bg
+          i.fa.fa-fw.fa-search
+      .dropdown-menu.arrow.search.dropdown-menu-form
+        .dd-header
+          span Search
+          span
+            a href="#"  Advanced search
+        .input-group
+          input.form-control placeholder="" type="text" /
+          span.input-group-btn
+            a.btn.btn-primary href="#"  Search
+    li.dropdown
+      a.dropdown-toggle.username data-toggle="dropdown" href="#"
+        span.hidden-xs
+          = current_user.email
+        = image_tag 'avatar-admin.png', classs: 'img-circle'
+      ul.dropdown-menu.userinfo
+        li
+          a href="#"
+            span.pull-left Edit Profile
+            i.pull-right.fa.fa-pencil
+        li
+          a href="#"
+            span.pull-left Account Settings
+            i.pull-right.fa.fa-cogs
+        li
+          a href="#"
+            span.pull-left Help
+            i.pull-right.fa.fa-question-circle
+        li.divider
+        li
+          a href="/users/sign_out"
+            span.pull-left Sign Out
+            i.pull-right.fa.fa-sign-out

@@ -1,0 +1,75 @@
+.static-sidebar style=("top: 50px;")
+  .sidebar
+    .widget.stay-on-collapse
+      .widget-body.welcome-box.tabular
+        .tabular-row
+          .tabular-cell.welcome-avatar
+            a href="#"
+              = image_tag 'avatar-admin.png', class: 'avatar'
+          .tabular-cell.welcome-options
+            span.welcome-text Welcome,
+            a.name href="#"
+              = current_user.email
+    #widget-sidebar.widget.stay-on-collapse
+      span.widget-heading Management
+      nav.widget-body role="navigation"
+        ul.acc-menu
+          li
+            a href="/admin"
+              i.fa.fa-home
+              span Dashboard
+              span.badge.badge-dark 1
+          li.hasChild
+            a href="javascript:;"
+              i.fa.fa-users
+              span Users
+              span.badge.badge-dark 23
+            ul.acc-menu
+              li
+                a href="/admin/users"  All users
+              li
+                a href="/admin/users/new"  Create new user
+          li.hasChild
+            a href="javascript:;"
+              i.fa.fa-sitemap
+              span Staffs
+            ul.acc-menu
+              li
+                a href="/admin/users"  All staffs
+              li
+                a href="/admin/users/new"  Create new staff
+          li.hasChild
+            a href="javascript:;"
+              i.fa.fa-comments
+              span Messages
+              span.label.label-primary BS
+            ul.acc-menu
+              li
+                a href="ui-modals.html"  Modal Box
+              li
+                a href="ui-progress.html"  Progress Bars
+              li
+                a href="ui-paginations.html"  Pagers &amp; Paginations
+              li
+                a href="ui-breadcrumbs.html"  Breadcrumbs
+              li
+                a href="ui-labelsbadges.html"  Labels &amp; Badges
+              li
+                a href="ui-alerts.html"  Alerts &amp; Notificiations
+              li
+                a href="ui-tabs.html"  Tabs &amp; Accordions
+              li
+                a href="ui-navbars.html"  Navbars
+              li
+                a href="ui-carousel.html"  Carousel
+              li
+                a href="ui-wells.html"  Wells
+
+    .widget.stay-on-collapse
+      .widget-heading Setting Apps
+      nav.widget-body
+        ul.acc-menu
+          li
+            a href="app-inbox.html"
+              i.fa.fa-gears
+              span Config

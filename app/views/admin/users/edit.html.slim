@@ -1,0 +1,16 @@
+.page-content
+  .page-heading
+    h1 Create New User
+  /! End page header
+  ol.breadcrumb
+    li
+      a href="/admin"  Admin
+    li
+      = link_to 'Users', admin_users_path
+    li
+      = link_to 'User profile', admin_user_path(@admin_user)
+    li.active
+      a href="#"  Editing user
+  /! End Breadcrumb
+  .container-fluid
+    = render 'form'

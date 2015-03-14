@@ -1,0 +1,59 @@
+= simple_form_for [:admin, @admin_user], html: { class: 'form-horizontal row-border' } do |f|
+  - if @admin_user.errors.any?
+    .row#error_explanation
+      .col-sm-12
+        .alert.alert-info.alert-danger
+          button.close aria-hidden="true" data-dismiss="alert" type="button"  ×
+          strong
+            i.fa.fa-info-circle &nbsp;
+            = "#{pluralize(@admin_user.errors.count, "error")} prohibited this admin_user from being saved:"
+          ul
+            - @admin_user.errors.full_messages.each do |message|
+              li = message
+  .row
+    .col-sm-12
+      .ui-sortable data-widget-group="group1"
+        .panel.panel-default data-widget=("{&quot;draggable&quot;: &quot;false&quot;}") data-widget-static=""
+          .panel-heading
+            h2 Basic Infomation
+          .panel-editbox data-widget-controls=""
+          .panel-body
+            .form-group
+              label.col-sm-2.control-label Email *
+              .col-sm-8
+                = f.text_field :email, class: 'form-control'
+            .form-group
+              label.col-sm-2.control-label Password *
+              .col-sm-8
+                = f.password_field :password, class: 'form-control'
+            .form-group
+              label.col-sm-2.control-label Name
+              .col-sm-8
+                = f.text_field :name, class: 'form-control'
+            .form-group
+              label.col-sm-2.control-label Phone
+              .col-sm-8
+                = f.text_field :phone, class: 'form-control'
+            .form-group
+              label.col-sm-2.control-label Gender
+              .col-sm-8
+                = f.input_field :gender, include_blank: false, class: 'form-control'
+            .form-group
+              label.col-sm-2.control-label Upload Avatar
+              .col-sm-4
+                .row.fileinput.fileinput-new data-provides="fileinput" style=("width: 100%;")
+                  .col-sm-6
+                    .fileinput-preview.thumbnail.mb20 data-trigger="fileinput" style=("width: 150px; height: 150px;")
+                  .col-sm-6
+                    a.btn.btn-default.fileinput-exists data-dismiss="fileinput" href="#"  Remove
+                    span.btn.btn-default.btn-file
+                      span.fileinput-new Select image
+                      span.fileinput-exists Change
+                      input name='user[avatar]' type="file" /
+              .col-sm-4
+                .alert.alert-info Image preview only works in IE10+, FF3.6+, Safari6.0+, Chrome6.0+ and Opera11.1+. In older browsers the filename is shown instead.
+
+            .panel-footer
+              .row
+                .col-sm-8.col-sm-offset-2
+                  = f.submit 'Submit', class: 'btn btn-primary'

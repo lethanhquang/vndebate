@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Admin Panel | Blindfold
+    link rel="icon" type="image/png" href="#{asset_path('favicon.png')}"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"
+    link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,700" rel="stylesheet" type="text/css" /
+    = stylesheet_link_tag    'application', media: 'all'
+    = csrf_meta_tags
+  body.infobar-offcanvas
+    .animsition-loading
+    #admin-page
+      = render "layouts/admin/header"
+      #wrapper
+        #layout-static
+          .static-sidebar-wrapper.sidebar-inverse
+            = render "layouts/admin/sidebar"
+          .static-content-wrapper
+            .static-content
+              = yield
+            = render "layouts/admin/footer"
+
+  /! Loading scripts
+  = webpack_manifest_script
+  = javascript_include_tag 'modernizr'
+  = webpack_bundle_tag 'admin'
+  = javascript_include_tag 'admin'
