@@ -9,7 +9,7 @@ let React  = require('react/addons');
 let Router = require('react-router');
 
 // component
-let Home = require('./home/home');
+let Home = require('./client/components/home/home');
 
 $(document).ready(function() {
   // define routing

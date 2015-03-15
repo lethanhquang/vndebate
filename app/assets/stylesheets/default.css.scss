@@ -35,6 +35,14 @@ $xs-large-screen:  1200px;
 
 // how to use @include retinize('icon-dribbble', 'png', 24px, 24px);
 
+@mixin custom-blur($size) {
+  -webkit-filter: blur($size);
+  -moz-filter: blur($size);
+  -o-filter: blur($size);
+  -ms-filter: blur($size);
+  filter: blur($size);
+}
+
 @mixin custom-background-body($file, $type) {
     background: image-url('' + $file + '.' + $type) no-repeat center center fixed;
     -webkit-background-size: cover;
